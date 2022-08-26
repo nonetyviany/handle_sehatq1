@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>EditProf.robot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6a8759;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #8a653b;}
+.s3 { color: #9876aa; font-style: italic;}
+.s4 { color: #cc7832;}
+.s5 { color: #ffc66d;}
+.s6 { color: #808080;}
+.s7 { color: #629755; font-weight: bold; font-style: italic;}
+.s8 { color: #a9b7c6;}
+.s9 { color: #77b767;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+EditProf.robot</font>
+</center></td></tr></table>
+<pre><span class="s0">*** Settings ***</span>
+<span class="s2">Library     </span><span class="s3">SeleniumLibrary</span>
+<span class="s2">Resource    </span><span class="s3">../TestScenario/EditProf.robot</span>
+<span class="s2">Resource    </span><span class="s3">../Config/Production.robot</span>
+<span class="s2">Resource    </span><span class="s3">../ObjectPage/EditProfPage.robot</span>
+<span class="s2">Resource    </span><span class="s3">../Ob</span>
+
+<span class="s4">Test Setup   </span><span class="s5">Login page is open</span>
+<span class="s4">Test Teardown    </span><span class="s5">Close page</span>
+
+
+<span class="s0">*** Test Cases ***</span>
+<span class="s6">#Check Data Diri button</span>
+<span class="s6">#    [Template]    Check edit Data Diri button</span>
+<span class="s6">#    ${DataButton}</span>
+
+<span class="s6">#Check change Photo Profile</span>
+<span class="s6">#    [Template]    Check Upload Photo</span>
+<span class="s6">#    /Users/nonetyviany/Downloads/durian-.jpeg</span>
+
+<span class="s4">Edit Profile Functionality</span>
+    <span class="s7">[Template]    </span><span class="s5">Check Register</span>
+    <span class="s8">${fullnamemax}        ${maleInput}        ${None}     </span><span class="s5">4     </span><span class="s9">${None}         </span><span class="s3">address aja         user failed edited      </span><span class="s6">#name more than 36</span>
+    <span class="s5">n                     </span><span class="s9">${maleInput}        ${None}     </span><span class="s3">4     </span><span class="s9">${None}         </span><span class="s3">address aja         user failed edited      </span><span class="s6">#name &lt; 2</span>
+<span class="s6">#    12                    ${maleInput}        ${None}     4     ${None}         address aja         user failed edited      #name with special character</span>
+<span class="s6">#    noni                  ${femaleInput}      12          2     ${None}         address aja         user failed edited      #tinggi badan &gt; 3</span>
+<span class="s6">#    noni                  ${femaleInput}      0           2     ${None}         address aja         user failed edited      #tinggi badan 0</span>
+<span class="s6">#    noni                  ${femaleInput}      sas         2     ${None}         address aja         user failed edited      #tinggi special character</span>
+<span class="s6">#    noni                  ${femaleInput}      ${none}     22     ${None}         address aja         user failed edited     #berat &gt;3</span>
+<span class="s6">#    noni                  ${femaleInput}      ${none}     0     ${None}         address aja         user failed edited      #berat 0</span>
+<span class="s6">#    noni                  ${femaleInput}      ${none}     aa     ${None}         address aja         user failed edited     #berat special char</span>
+<span class="s6">#    noni                  ${femaleInput}      ${none}     22     ${None}         ${address256}         user failed edited     #address &gt; 256</span>
+<span class="s6">#    noni                  ${femaleInput}      ${none}     22     ${None}         nana                   user success edited     #success</span>
+
+
+
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>LoginSuite.robot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6a8759;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #8a653b;}
+.s3 { color: #9876aa; font-style: italic;}
+.s4 { color: #cc7832;}
+.s5 { color: #ffc66d;}
+.s6 { color: #629755; font-weight: bold; font-style: italic;}
+.s7 { color: #a9b7c6;}
+.s8 { color: #77b767;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+LoginSuite.robot</font>
+</center></td></tr></table>
+<pre><span class="s0">*** Settings ***</span>
+<span class="s2">Library     </span><span class="s3">SeleniumLibrary</span>
+<span class="s2">Resource    </span><span class="s3">../TestScenario/Login.robot</span>
+<span class="s2">Resource    </span><span class="s3">../Config/Production.robot</span>
+<span class="s4">Test Setup   </span><span class="s5">Login page is open</span>
+<span class="s4">Test Teardown    </span><span class="s5">Close page</span>
+
+
+<span class="s0">*** Test Cases ***</span>
+<span class="s4">Check Login functionality</span>
+    <span class="s6">[Template]    </span><span class="s5">Login with email and password</span>
+    <span class="s7">${empty}           ${empty}                     </span><span class="s5">invalid login</span>
+    <span class="s5">nonety             </span><span class="s8">${validPassword}             </span><span class="s3">invalid login</span>
+    <span class="s7">${validEmail}      </span><span class="s5">1234                         </span><span class="s3">invalid login</span>
+    <span class="s7">${invalidEmail}    ${invalidPassword}           </span><span class="s5">invalid login</span>
+    <span class="s7">${invalidEmail}    ${validPassword}             </span><span class="s5">invalid login</span>
+    <span class="s7">${validemail}      ${invalidPassword}           </span><span class="s5">invalid login</span>
+    <span class="s7">${validEmail}      ${validPassword}             </span><span class="s5">success login</span>
+
+<span class="s4">Check manfaat Log In Link</span>
+    <span class="s6">[Template]    </span><span class="s5">check 'manfaat log in' link</span>
+    <span class="s7">${manfaatButton}</span>
+
+<span class="s4">Check Forgot Password Link</span>
+    <span class="s6">[Template]    </span><span class="s5">check 'forgot password' link</span>
+    <span class="s7">${forgotPasswordButton}</span>
+
+<span class="s4">Check Gmail button</span>
+    <span class="s6">[Template]    </span><span class="s5">check 'gmail' button</span>
+    <span class="s7">${gmailButton}</span>
+
+<span class="s4">Check Register button</span>
+    <span class="s6">[Template]    </span><span class="s5">check 'register' button</span>
+    <span class="s7">${registerButton}</span>
+
+<span class="s4">Check Corporate Log In button</span>
+    <span class="s6">[Template]    </span><span class="s5">check 'corporate log in' button</span>
+    <span class="s7">${corporateLoginLink}</span>
+
+
+
+</pre>
+</body>
+</html>
