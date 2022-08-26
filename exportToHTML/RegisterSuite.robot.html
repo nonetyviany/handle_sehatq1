@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>RegisterSuite.robot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6a8759;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #8a653b;}
+.s3 { color: #9876aa; font-style: italic;}
+.s4 { color: #cc7832;}
+.s5 { color: #ffc66d;}
+.s6 { color: #808080;}
+.s7 { color: #629755; font-weight: bold; font-style: italic;}
+.s8 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RegisterSuite.robot</font>
+</center></td></tr></table>
+<pre><span class="s0">*** Settings ***</span>
+<span class="s2">Library    </span><span class="s3">SeleniumLibrary</span>
+<span class="s2">Resource    </span><span class="s3">../Config/production.robot</span>
+<span class="s2">Resource    </span><span class="s3">../TestScenario/Register.robot</span>
+
+<span class="s4">Test Setup  </span><span class="s5">Register page is open</span>
+<span class="s4">Test Teardown    </span><span class="s5">Close page</span>
+<span class="s2">Library    </span><span class="s3">SeleniumLibrary</span>
+<span class="s2">Resource    </span><span class="s3">../TestScenario/Register.robot</span>
+<span class="s2">Resource    </span><span class="s3">../Config/Production.robot</span>
+
+
+<span class="s0">*** Test Cases ***</span>
+<span class="s6">#tnc link</span>
+<span class="s4">Check Term and Condition Text Link</span>
+    <span class="s7">[Template]    </span><span class="s5">Check term and condition link</span>
+    <span class="s8">${tncLink}</span>
+
+<span class="s6">#Log In Link</span>
+<span class="s4">Check Log In Text Link</span>
+    <span class="s7">[Template]    </span><span class="s5">Check Log In Link</span>
+    <span class="s8">${loginLink}</span>
+
+<span class="s4">Check Register Functionality</span>
+    <span class="s7">[Template]    </span><span class="s5">check register functionality</span>
+<span class="s6">#    ${none}            ${none}                         ${none}              failed registered           #empty all field</span>
+<span class="s6">#    ${none}            nonetyviany@gmail.com           1234567              failed registered           #empty full name</span>
+<span class="s6">#    ${fullnamemax}     nonetyviany@gmail.com           1234567              failed registered           #fullname max characters (pakai 500 char)</span>
+<span class="s6">#    Nama.Nonety        nonetyviany@gmail.com           1234567              failed registered           #fullname use special character/number</span>
+<span class="s6">#    Nana               ${none}                         1234567              failed registered           #empty email</span>
+<span class="s6">#    Nana               nonetyviany                     1234567              failed registered           #wrong format email</span>
+<span class="s6">#    Nana               nonetyvianysusilo12@gmail.com   1234567              failed registered           #existing email</span>
+<span class="s6">#    Nana               nonetyvian@gmail.com            ${none}              failed registered          #empty password</span>
+<span class="s6">#    Nana               nonetyvian@gmail.com            1234                 failed registered          #passwordlessthan6</span>
+     <span class="s5">Nonea              </span><span class="s3">chckc38@gmail.com               12344567             success registered          </span><span class="s6">#valid data</span>
+
+
+</pre>
+</body>
+</html>
